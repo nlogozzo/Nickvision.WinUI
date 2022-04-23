@@ -8,7 +8,7 @@
 	<Nullable>enable</Nullable>
 	<LangVersion>10</LangVersion>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Version>2022.4.0</Version>
+	<Version>2022.4.1</Version>
 	<Company>Nickvision</Company>
 	<Description>A framework for creating Nickvision applications with the Windows App SDK.</Description>
 	<Copyright>(C) Nickvision 2021-2022</Copyright>
@@ -16,7 +16,8 @@
 	<RepositoryUrl>https://github.com/nlogozzo/Nickvision.WinUI</RepositoryUrl>
 	<RepositoryType>github</RepositoryType>
 	<PackageTags>c#, desktop, ui, winui</PackageTags>
-	<PackageReleaseNotes>- Initial Release</PackageReleaseNotes>
+	<PackageReleaseNotes>- Fixed an issue where xbf files could not be found</PackageReleaseNotes>
+	<GenerateLibraryLayout>true</GenerateLibraryLayout> 
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Controls\ProgressDialog.xaml" />
