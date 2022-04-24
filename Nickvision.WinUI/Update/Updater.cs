@@ -42,7 +42,6 @@ public class Updater
         _linkToConfig = linkToConfig;
         _updateConfig = null;
         _updateAvailable = false;
-        _httpClient = httpClient;
     }
 
     /// <summary>
