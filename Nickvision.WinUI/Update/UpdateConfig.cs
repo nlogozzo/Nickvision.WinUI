@@ -1,4 +1,5 @@
 ﻿using Nickvision.WinUI.Extensions;
+using Nickvision.WinUI.Models;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -33,12 +34,13 @@ public class UpdateConfig
     /// <summary>
     /// Parses an UpdateConfig object from the provided link.
     /// </summary>
+    /// <param name="appInfo">The AppInfo of the running application</param>
     /// <param name="httpClient">The HttpClient</param>
     /// <param name="linkToConfig">The link to the UpdateConfig file online</param>
     /// <returns>An UpdateConfig object parsed from the provided file link. Null if unable to parse</returns>
-    public static async Task<UpdateConfig?> LoadFromWebAsync(HttpClient httpClient, Uri linkToConfig)
+    public static async Task<UpdateConfig?> LoadFromWebAsync(AppInfo appInfo, HttpClient httpClient, Uri linkToConfig)
     {
-        var dataDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}{Path.DirectorySeparatorChar}Nickvision{Path.DirectorySeparatorChar}Nickvision.WinUI";
+        var dataDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}{Path.DirectorySeparatorChar}Nickvision{Path.DirectorySeparatorChar}{appInfo.Name}";
         var pathToDownload = $"{dataDir}{Path.DirectorySeparatorChar}UpdateConfig.json";
         if (!Directory.Exists(dataDir))
         {

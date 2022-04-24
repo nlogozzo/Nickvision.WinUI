@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nickvision.WinUI.Models;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace Nickvision.WinUI.Update;
 /// </summary>
 public class Updater
 {
+    private readonly AppInfo _appInfo;
     private readonly HttpClient _httpClient;
     private readonly Uri _linkToConfig;
     private readonly Version _currentApplicationVersion;
@@ -31,11 +33,13 @@ public class Updater
     /// <summary>
     /// Constructs an Updater.
     /// </summary>
+    /// <param name="appInfo">The AppInfo for the running application</param>
     /// <param name="httpClient">The HttpClient</param>
     /// <param name="linkToConfig">The link to the UpdateConfig file online</param>
     /// <param name="currentApplicationVersion">The version of the running application</param>
-    public Updater(HttpClient httpClient, Uri linkToConfig, Version currentApplicationVersion)
+    public Updater(AppInfo appInfo, HttpClient httpClient, Uri linkToConfig, Version currentApplicationVersion)
     {
+        _appInfo = appInfo;
         _httpClient = httpClient;
         _linkToConfig = linkToConfig;
         _currentApplicationVersion = currentApplicationVersion;
@@ -50,7 +54,7 @@ public class Updater
     /// <returns>Whether or not an update is available</returns>
     public async Task<bool> CheckForUpdatesAsync()
     {
-        _updateConfig = await UpdateConfig.LoadFromWebAsync(_httpClient, _linkToConfig);
+        _updateConfig = await UpdateConfig.LoadFromWebAsync(_appInfo, _httpClient, _linkToConfig);
         if (_updateConfig != null && LatestVersion > _currentApplicationVersion)
         {
             _updateAvailable = true;
