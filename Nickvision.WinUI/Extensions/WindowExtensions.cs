@@ -12,7 +12,7 @@ namespace Nickvision.WinUI.Extensions;
 public static class WindowExtensions
 {
     [DllImport("dwmapi.dll")]
-    private static extern int DwmSetWindowAttribute(IntPtr hwnd, int dwAttribute, IntPtr pvAttribute, int cbAttribute);
+    private static extern int DwmSetWindowAttribute(IntPtr hwnd, int dwAttribute, ref int pvAttribute, int cbAttribute);
 
     /// <summary>
     /// Maximizes a window.
@@ -27,7 +27,8 @@ public static class WindowExtensions
     public static void ApplyDarkWin32TitleBar(this Window window)
     {
         var hwnd = WindowNative.GetWindowHandle(window);
-        DwmSetWindowAttribute(hwnd, 20, new IntPtr(1), sizeof(int));
+        var enabled = 1;
+        DwmSetWindowAttribute(hwnd, 20, ref enabled, sizeof(int));
         UxTheme.SetWindowTheme(hwnd, "DarkMode_Explorer", null);
     }
 }
