@@ -1,5 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
 using System;
+using System.Runtime.InteropServices;
 using Vanara.PInvoke;
 using WinRT.Interop;
 
@@ -10,6 +11,9 @@ namespace Nickvision.WinUI.Extensions;
 /// </summary>
 public static class WindowExtensions
 {
+    [DllImport("dwmapi.dll")]
+    private static extern int DwmSetWindowAttribute(IntPtr hwnd, int dwAttribute, IntPtr pvAttribute, int cbAttribute);
+
     /// <summary>
     /// Maximizes a window.
     /// </summary>
@@ -20,9 +24,10 @@ public static class WindowExtensions
     /// Changes the window's title bar to a dark theme.
     /// </summary>
     /// <param name="window">The window to change theme</param>
-    public static void ApplyDarkTitleBar(this Window window)
+    public static void ApplyDarkWin32TitleBar(this Window window)
     {
-        DwmApi.DwmSetWindowAttribute(WindowNative.GetWindowHandle(window), (DwmApi.DWMWINDOWATTRIBUTE)20, new IntPtr(1), sizeof(int));
-        UxTheme.SetWindowTheme(WindowNative.GetWindowHandle(window), "DarkMode_Explorer", null);
+        var hwnd = WindowNative.GetWindowHandle(window);
+        DwmSetWindowAttribute(hwnd, 20, new IntPtr(1), sizeof(int));
+        UxTheme.SetWindowTheme(hwnd, "DarkMode_Explorer", null);
     }
 }
