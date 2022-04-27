@@ -69,4 +69,11 @@ public sealed partial class TitleBar : Grid
 
         set => SetValue(TitleForegroundProperty, value);
     }
+
+    /// <summary>
+    /// Occurs when the TitleBar is loaded.
+    /// </summary>
+    /// <param name="sender">Unused</param>
+    /// <param name="e">Unused</param>
+    private void TitleBar_Loaded(object sender, RoutedEventArgs e) => TitleForeground = (SolidColorBrush)Application.Current.Resources["WindowCaptionForeground"];
 }

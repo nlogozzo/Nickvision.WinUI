@@ -5,7 +5,7 @@
     xmlns:local="using:Nickvision.WinUI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Background="Transparent" Height="32">
+    mc:Ignorable="d" Background="Transparent" Height="32" Loaded="TitleBar_Loaded">
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="{x:Bind LeftPaddingColumnWidth, Mode=TwoWay}"/>
         <ColumnDefinition/>
