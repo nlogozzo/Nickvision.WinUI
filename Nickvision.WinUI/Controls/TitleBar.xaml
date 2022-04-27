@@ -14,5 +14,5 @@
 
     <Image Grid.Column="1" HorizontalAlignment="Left" Margin="8,0,0,0" Width="16" Height="16" Source="{x:Bind Icon, Mode=TwoWay}"/>
 
-    <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="28,0,0,0" Style="{StaticResource CaptionTextBlockStyle}" Text="{x:Bind Title, Mode=TwoWay}"/>
+    <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="28,0,0,0" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{x:Bind TitleForeground, Mode=TwoWay}" Text="{x:Bind Title, Mode=TwoWay}"/>
 </Grid>

@@ -13,6 +13,7 @@ public sealed partial class TitleBar : Grid
     public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(ImageSource), typeof(TitleBar), new PropertyMetadata(null));
     public static readonly DependencyProperty LeftPaddingColumnWidthProperty = DependencyProperty.Register("LeftPaddingColumnWidth", typeof(GridLength), typeof(TitleBar), new PropertyMetadata(null));
     public static readonly DependencyProperty RightPaddingColumnWidthProperty = DependencyProperty.Register("RightPaddingColumnWidth", typeof(GridLength), typeof(TitleBar), new PropertyMetadata(null));
+    public static readonly DependencyProperty TitleForegroundProperty = DependencyProperty.Register("TitleForeground", typeof(Brush), typeof(TitleBar), new PropertyMetadata(null));
 
     /// <summary>
     /// Constructs a TitleBar.
@@ -57,5 +58,15 @@ public sealed partial class TitleBar : Grid
         get => (GridLength)GetValue(RightPaddingColumnWidthProperty);
 
         set => SetValue(RightPaddingColumnWidthProperty, value);
+    }
+
+    /// <summary>
+    /// The foreground color for the title.
+    /// </summary>
+    public Brush TitleForeground
+    {
+        get => (Brush)GetValue(TitleForegroundProperty);
+
+        set => SetValue(TitleForegroundProperty, value);
     }
 }
