@@ -56,9 +56,15 @@ public static class WindowExtensions
             appWindow.TitleBar.ExtendsContentIntoTitleBar = true;
             appWindow.TitleBar.ButtonBackgroundColor = Colors.Transparent;
             appWindow.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            appWindow.TitleBar.ButtonForegroundColor = ((SolidColorBrush)Application.Current.Resources["WindowCaptionForeground"]).Color;
             titleBar.LeftPaddingColumnWidth = new GridLength(appWindow.TitleBar.LeftInset);
             titleBar.RightPaddingColumnWidth = new GridLength(appWindow.TitleBar.RightInset);
-            window.Activated += (sender, args) => titleBar.TitleForeground = (SolidColorBrush)Application.Current.Resources[args.WindowActivationState == WindowActivationState.Deactivated ? "WindowCaptionForegroundDisabled" : "WindowCaptionForeground"];
+            window.Activated += (sender, args) =>
+            {
+                var foreground = (SolidColorBrush)Application.Current.Resources[args.WindowActivationState == WindowActivationState.Deactivated ? "WindowCaptionForegroundDisabled" : "WindowCaptionForeground"];
+                titleBar.TitleForeground = foreground;
+                appWindow.TitleBar.ButtonForegroundColor = foreground.Color;
+            };
         }
         else
         {
