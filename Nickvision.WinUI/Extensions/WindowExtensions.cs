@@ -53,6 +53,8 @@ public static class WindowExtensions
         var appWindow = window.GetAppWindow();
         if(AppWindowTitleBar.IsCustomizationSupported())
         {
+            window.Title = titleBar.Title;
+            appWindow.Title = titleBar.Title;
             appWindow.TitleBar.ExtendsContentIntoTitleBar = true;
             appWindow.TitleBar.ButtonBackgroundColor = Colors.Transparent;
             appWindow.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
