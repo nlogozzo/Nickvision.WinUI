@@ -7,9 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Style="{StaticResource DefaultContentDialogStyle}"
     Title="Please Wait" Opened="Dialog_Opened" Closing="Dialog_Closing">
-    <StackPanel>
-        <TextBlock Name="LblDescription"/>
+    <StackPanel Orientation="Horizontal" Spacing="20">
+        <ProgressRing IsActive="True"/>
 
-        <ProgressBar HorizontalAlignment="Stretch" Margin="0,20,0,0" Height="20" IsIndeterminate="True"/>
+        <TextBlock VerticalAlignment="Center" Name="LblDescription"/>
     </StackPanel>
 </ContentDialog>
