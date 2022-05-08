@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Nickvision.WinUI.Controls;
 
 /// <summary>
-/// A control for running a long task and displaying Progress in a blocking dialog.
+/// A control for displaying choices for selection in a dialog.
 /// </summary>
 public sealed partial class ComboBoxDialog : ContentDialog, IHideable
 {

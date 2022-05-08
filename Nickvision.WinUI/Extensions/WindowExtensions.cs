@@ -69,6 +69,7 @@ public static class WindowExtensions
         }
         else
         {
+            window.Title = titleBar.Title;
             appWindow.TitleBar.ExtendsContentIntoTitleBar = false;
             titleBar.Visibility = Visibility.Collapsed;
         }
