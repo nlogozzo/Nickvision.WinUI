@@ -12,10 +12,5 @@ A framework for creating Nickvision applications with the Windows App SDK
   - Customs services made for working with Windows App SDK and Nickvision.WinUI controls: `IIOService`, `IProgressDialogService`, `IContentDialogService`, etc...
   - A `Messenger` class to support sending messages between ViewModels
 
-# Sample
-[NickvisionApp](https://github.com/nlogozzo/NickvisionApp)
-
-Please refer to the sample app for an example on how to use this library.
-
 # Nuget
 [Nickvision.WinUI](https://www.nuget.org/packages/Nickvision.WinUI/)
